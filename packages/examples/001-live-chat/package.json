@@ -1,0 +1,58 @@
+{
+  "author": "Roberto Pintos López",
+  "bugs": {
+    "url": "https://github.com/inversify/framework-examples/issues"
+  },
+  "description": "InversifyJs live chat code example",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@vitest/coverage-v8": "4.0.10",
+    "eslint": "9.39.1",
+    "prettier": "3.7.4",
+    "reflect-metadata": "0.2.2",
+    "rimraf": "6.1.2",
+    "tslib": "2.8.1",
+    "typescript": "5.9.3",
+    "vitest": "4.0.10"
+  },
+  "homepage": "https://inversify.io",
+  "keywords": [
+    "inversify",
+    "framework",
+    "example",
+    "live-chat"
+  ],
+  "devEngines": {
+    "node": "^24.10.0",
+    "pnpm": "^10.13.1"
+  },
+  "license": "MIT",
+  "module": "lib/esm/index.js",
+  "exports": {
+    ".": "./lib/esm/index.js"
+  },
+  "name": "@inversifyjs/example-live-chat",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inversify/framework-examples.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run build:esm",
+    "build:esm": "tsc --build tsconfig.esm.json",
+    "build:clean": "rimraf lib",
+    "format": "prettier --write ./src",
+    "lint": "eslint ./src",
+    "prebuild": "pnpm run build:clean",
+    "test": "vitest run",
+    "test:integration": "pnpm run test --project Integration",
+    "test:coverage": "pnpm run test:unit --coverage",
+    "test:uncommitted": "pnpm run test --changed=HEAD",
+    "test:unit": "pnpm run test --project Unit"
+  },
+  "version": "9.1.1"
+}
