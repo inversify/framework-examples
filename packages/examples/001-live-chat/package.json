@@ -4,7 +4,15 @@
     "url": "https://github.com/inversify/framework-examples/issues"
   },
   "description": "InversifyJs live chat code example",
-  "dependencies": {},
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "@inversifyjs/core": "^9.1.1",
+    "@inversifyjs/http-core": "^4.8.0",
+    "@inversifyjs/http-hono": "^4.8.0",
+    "@inversifyjs/http-sse": "^1.1.1",
+    "hono": "^4.10.7",
+    "inversify": "^7.10.6"
+  },
   "devDependencies": {
     "@types/node": "24.10.1",
     "@vitest/coverage-v8": "4.0.10",
