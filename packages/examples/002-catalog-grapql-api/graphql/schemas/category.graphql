@@ -1,0 +1,23 @@
+type CategoryOverview implements Node {
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type Category implements Node {
+  id: ID!
+  name: String!
+  slug: String!
+  products(first: Int, after: String): ProductConnection!
+}
+
+type CategoryEdge {
+  cursor: String!
+  node: CategoryOverview!
+}
+
+type CategoryConnection {
+  edges: [CategoryEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}

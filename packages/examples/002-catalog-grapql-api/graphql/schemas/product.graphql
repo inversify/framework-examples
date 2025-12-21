@@ -1,0 +1,18 @@
+type Product implements Node {
+  id: ID!
+  title: String!
+  description: String
+  price: Float!
+  currency: String!
+}
+
+type ProductEdge {
+  cursor: String!
+  node: Product!
+}
+
+type ProductConnection {
+  edges: [ProductEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
