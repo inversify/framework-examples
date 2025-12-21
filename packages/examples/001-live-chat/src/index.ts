@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-
 import { serve } from '@hono/node-server';
 import { InversifyHonoHttpAdapter } from '@inversifyjs/http-hono';
 import { Hono } from 'hono';

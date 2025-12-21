@@ -1,0 +1,9 @@
+# import * from "common.graphql"
+# import * from "product.graphql"
+# import * from "category.graphql"
+
+type Query {
+  categories(first: Int, after: String): CategoryConnection!
+  category(id: ID!): Category
+  product(id: ID!): Product
+}
