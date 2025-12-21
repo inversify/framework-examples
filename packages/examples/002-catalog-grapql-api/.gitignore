@@ -8,6 +8,10 @@
 # Test coverage report
 /coverage
 
+/generated
+
+/.env
+
 # node modules
 /node_modules/
 

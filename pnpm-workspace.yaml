@@ -3,5 +3,7 @@ packages:
 
 onlyBuiltDependencies:
   - '@apollo/protobufjs'
+  - '@prisma/engines'
   - '@swc/core'
   - esbuild
+  - prisma
