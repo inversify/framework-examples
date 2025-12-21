@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "category" (
-    "id" TEXT NOT NULL,
+    "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -11,8 +11,8 @@ CREATE TABLE "category" (
 
 -- CreateTable
 CREATE TABLE "product" (
-    "id" TEXT NOT NULL,
-    "categoryId" TEXT NOT NULL,
+    "id" UUID NOT NULL,
+    "categoryId" UUID NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "currency" TEXT NOT NULL,

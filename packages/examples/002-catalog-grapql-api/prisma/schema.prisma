@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Category {
-  id        String    @id
+  id        String    @id @default(uuid(7)) @db.Uuid
   name      String
   slug      String    @unique
   createdAt DateTime  @default(now())
@@ -19,8 +19,8 @@ model Category {
 }
 
 model Product {
-  id          String   @id
-  categoryId  String
+  id          String   @id @default(uuid(7)) @db.Uuid
+  categoryId  String   @db.Uuid
   title       String
   description String
   currency    String
