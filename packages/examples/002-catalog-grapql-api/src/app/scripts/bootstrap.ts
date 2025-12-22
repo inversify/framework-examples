@@ -1,5 +1,6 @@
 import type http from 'node:http';
 
+import { type ExpressContextFunctionArgument } from '@as-integrations/express5';
 import {
   ApolloExpressServerContainerModule,
   httpServerServiceIdentifier,
@@ -10,22 +11,27 @@ import { Container } from 'inversify';
 
 import { CategoryContainerModule } from '../../category/modules/CategoryContainerModule.js';
 import { PrismaModule } from '../../foundation/db/modules/PrismaModule.js';
+import { type Context } from '../../graphql/models/Context.js';
 import { ProductContainerModule } from '../../product/modules/ProductContainerModule.js';
 import { AppContainerModule } from '../modules/AppContainerModule.js';
 import { AppResolvers } from '../resolvers/AppResolvers.js';
 
-export const PORT: number = 3000;
+const PORT: number = 3000;
 
 const container: Container = new Container();
 
 await container.load(
   new AppContainerModule(),
-  ApolloExpressServerContainerModule.forOptions(
+  ApolloExpressServerContainerModule.forOptions<Context>(
     {
       controllerOptions: {
         path: '',
       },
-      getContext: async () => ({}),
+      getContext: async (
+        arg: ExpressContextFunctionArgument,
+      ): Promise<Context> => ({
+        request: arg.req,
+      }),
     },
     {
       resolverServiceIdentifier: AppResolvers,

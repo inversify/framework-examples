@@ -71,8 +71,22 @@ export class QueryResolvers implements graphqlModels.QueryResolvers<Context> {
     };
   }
 
-  public async category(): Promise<graphqlModels.Category | null> {
-    return null;
+  public async category(
+    _parent: unknown,
+    args: graphqlModels.QueryCategoryArgs,
+  ): Promise<Partial<graphqlModels.Category> | null> {
+    const categoryDb: CategoryDb | undefined =
+      await this.#categoryRepository.findOneById(args.id);
+
+    if (categoryDb === undefined) {
+      return null;
+    }
+
+    return {
+      id: categoryDb.id,
+      name: categoryDb.name,
+      slug: categoryDb.slug,
+    };
   }
 
   public async product(

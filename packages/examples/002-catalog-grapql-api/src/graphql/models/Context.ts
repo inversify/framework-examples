@@ -1,5 +1,5 @@
 import type express from 'express';
 
 export interface Context {
-  request: express.Request;
+  readonly request: express.Request;
 }
