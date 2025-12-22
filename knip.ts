@@ -31,6 +31,7 @@ export default {
   commitlint: {
     config: "config/commitlint/commitlint.config.js",
   },
+  prisma: false,
   workspaces: {
     ".": {
       entry: [],
@@ -38,5 +39,19 @@ export default {
       project: [],
     },
     "packages/examples/*": defaultWorkspaceProjectConfig,
+    "packages/examples/002-catalog-grapql-api": {
+      ...defaultWorkspaceProjectConfig,
+      entry: [
+        ...defaultWorkspaceProjectConfig.entry,
+        "prisma.config.mjs",
+        "src/scripts/generateGraphqlTypes.ts",
+      ],
+      ignore: ["src/graphql/models/types.ts"],
+      ignoreDependencies: [
+        ...defaultWorkspaceProjectConfig.ignoreDependencies,
+        "@prisma/client",
+        "@prisma/client-runtime-utils",
+      ],
+    },
   },
 } satisfies KnipConfig;
