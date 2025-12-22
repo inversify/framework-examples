@@ -70,6 +70,20 @@ export type CategoryOverview = Node & {
   slug: Scalars['String']['output'];
 };
 
+export type CreateCategoryInput = {
+  name: Scalars['String']['input'];
+  slug: Scalars['String']['input'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createCategory: Category;
+};
+
+export type MutationCreateCategoryArgs = {
+  input: CreateCategoryInput;
+};
+
 export type Node = {
   id: Scalars['ID']['output'];
 };
@@ -257,9 +271,11 @@ export type ResolversTypes = ResolversObject<{
   CategoryConnection: ResolverTypeWrapper<CategoryConnection>;
   CategoryEdge: ResolverTypeWrapper<CategoryEdge>;
   CategoryOverview: ResolverTypeWrapper<CategoryOverview>;
+  CreateCategoryInput: CreateCategoryInput;
   Float: ResolverTypeWrapper<Scalars['Float']['output']>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  Mutation: ResolverTypeWrapper<Record<PropertyKey, never>>;
   Node: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Node']>;
   PageInfo: ResolverTypeWrapper<PageInfo>;
   Product: ResolverTypeWrapper<Product>;
@@ -276,9 +292,11 @@ export type ResolversParentTypes = ResolversObject<{
   CategoryConnection: CategoryConnection;
   CategoryEdge: CategoryEdge;
   CategoryOverview: CategoryOverview;
+  CreateCategoryInput: CreateCategoryInput;
   Float: Scalars['Float']['output'];
   ID: Scalars['ID']['output'];
   Int: Scalars['Int']['output'];
+  Mutation: Record<PropertyKey, never>;
   Node: ResolversInterfaceTypes<ResolversParentTypes>['Node'];
   PageInfo: PageInfo;
   Product: Product;
@@ -337,6 +355,19 @@ export type CategoryOverviewResolvers<
   name: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   slug: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type MutationResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['Mutation'] =
+    ResolversParentTypes['Mutation'],
+> = ResolversObject<{
+  createCategory: Resolver<
+    ResolversTypes['Category'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationCreateCategoryArgs, 'input'>
+  >;
 }>;
 
 export type NodeResolvers<
@@ -436,6 +467,7 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   CategoryConnection: CategoryConnectionResolvers<ContextType>;
   CategoryEdge: CategoryEdgeResolvers<ContextType>;
   CategoryOverview: CategoryOverviewResolvers<ContextType>;
+  Mutation: MutationResolvers<ContextType>;
   Node: NodeResolvers<ContextType>;
   PageInfo: PageInfoResolvers<ContextType>;
   Product: ProductResolvers<ContextType>;

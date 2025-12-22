@@ -7,3 +7,12 @@ type Query {
   category(id: ID!): Category
   product(id: ID!): Product
 }
+
+input CreateCategoryInput {
+  name: String!
+  slug: String!
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): Category!
+}
