@@ -13,6 +13,15 @@ input CreateCategoryInput {
   slug: String!
 }
 
+input CreateProductInput {
+  categoryId: ID!
+  title: String!
+  description: String!
+  currency: String!
+  price: Float!
+}
+
 type Mutation {
   createCategory(input: CreateCategoryInput!): Category!
+  createProduct(input: CreateProductInput!): Product!
 }

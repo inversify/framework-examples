@@ -1,4 +1,5 @@
 import { inject, injectable } from 'inversify';
+import { v7 } from 'uuid';
 
 import {
   Prisma,
@@ -20,6 +21,25 @@ export class ProductRepository {
   public async countByCategoryId(categoryId: string): Promise<number> {
     return this.#client.product.count({
       where: { categoryId },
+    });
+  }
+
+  public async createOne(
+    categoryId: string,
+    title: string,
+    description: string,
+    currency: string,
+    price: number,
+  ): Promise<Product> {
+    return this.#client.product.create({
+      data: {
+        categoryId,
+        currency,
+        description,
+        id: v7(),
+        price,
+        title,
+      },
     });
   }
 

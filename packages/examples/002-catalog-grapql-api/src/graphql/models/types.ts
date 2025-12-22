@@ -75,13 +75,26 @@ export type CreateCategoryInput = {
   slug: Scalars['String']['input'];
 };
 
+export type CreateProductInput = {
+  categoryId: Scalars['ID']['input'];
+  currency: Scalars['String']['input'];
+  description: Scalars['String']['input'];
+  price: Scalars['Float']['input'];
+  title: Scalars['String']['input'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createCategory: Category;
+  createProduct: Product;
 };
 
 export type MutationCreateCategoryArgs = {
   input: CreateCategoryInput;
+};
+
+export type MutationCreateProductArgs = {
+  input: CreateProductInput;
 };
 
 export type Node = {
@@ -272,6 +285,7 @@ export type ResolversTypes = ResolversObject<{
   CategoryEdge: ResolverTypeWrapper<CategoryEdge>;
   CategoryOverview: ResolverTypeWrapper<CategoryOverview>;
   CreateCategoryInput: CreateCategoryInput;
+  CreateProductInput: CreateProductInput;
   Float: ResolverTypeWrapper<Scalars['Float']['output']>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
@@ -293,6 +307,7 @@ export type ResolversParentTypes = ResolversObject<{
   CategoryEdge: CategoryEdge;
   CategoryOverview: CategoryOverview;
   CreateCategoryInput: CreateCategoryInput;
+  CreateProductInput: CreateProductInput;
   Float: Scalars['Float']['output'];
   ID: Scalars['ID']['output'];
   Int: Scalars['Int']['output'];
@@ -367,6 +382,12 @@ export type MutationResolvers<
     ParentType,
     ContextType,
     RequireFields<MutationCreateCategoryArgs, 'input'>
+  >;
+  createProduct: Resolver<
+    ResolversTypes['Product'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationCreateProductArgs, 'input'>
   >;
 }>;
 
