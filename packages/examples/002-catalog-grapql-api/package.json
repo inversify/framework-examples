@@ -63,7 +63,7 @@
     "db:migrate": "prisma migrate deploy",
     "db:generate": "prisma generate",
     "format": "prettier --write ./src",
-    "generate:graphql:types": "node ./lib/scripts/generateGraphqlTypes.js",
+    "generate:graphql:types": "node ./lib/app/scripts/generateGraphqlTypes.js",
     "lint": "eslint ./src",
     "prebuild": "pnpm run build:clean",
     "test": "vitest run",
