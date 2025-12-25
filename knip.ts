@@ -44,7 +44,7 @@ export default {
       entry: [
         ...defaultWorkspaceProjectConfig.entry,
         "prisma.config.mjs",
-        "src/scripts/generateGraphqlTypes.ts",
+        "src/app/scripts/generateGraphqlTypes.ts",
       ],
       ignore: ["src/graphql/models/types.ts"],
       ignoreDependencies: [

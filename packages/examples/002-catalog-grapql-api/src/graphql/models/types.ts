@@ -151,6 +151,11 @@ export type QueryProductArgs = {
   id: Scalars['ID']['input'];
 };
 
+export type Subscription = {
+  __typename?: 'Subscription';
+  productAdded: Product;
+};
+
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
 
@@ -297,6 +302,7 @@ export type ResolversTypes = ResolversObject<{
   ProductEdge: ResolverTypeWrapper<ProductEdge>;
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  Subscription: ResolverTypeWrapper<Record<PropertyKey, never>>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -319,6 +325,7 @@ export type ResolversParentTypes = ResolversObject<{
   ProductEdge: ProductEdge;
   Query: Record<PropertyKey, never>;
   String: Scalars['String']['output'];
+  Subscription: Record<PropertyKey, never>;
 }>;
 
 export type CategoryResolvers<
@@ -483,6 +490,19 @@ export type QueryResolvers<
   >;
 }>;
 
+export type SubscriptionResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['Subscription'] =
+    ResolversParentTypes['Subscription'],
+> = ResolversObject<{
+  productAdded: SubscriptionResolver<
+    ResolversTypes['Product'],
+    'productAdded',
+    ParentType,
+    ContextType
+  >;
+}>;
+
 export type Resolvers<ContextType = any> = ResolversObject<{
   Category: CategoryResolvers<ContextType>;
   CategoryConnection: CategoryConnectionResolvers<ContextType>;
@@ -495,4 +515,5 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   ProductConnection: ProductConnectionResolvers<ContextType>;
   ProductEdge: ProductEdgeResolvers<ContextType>;
   Query: QueryResolvers<ContextType>;
+  Subscription: SubscriptionResolvers<ContextType>;
 }>;

@@ -25,3 +25,7 @@ type Mutation {
   createCategory(input: CreateCategoryInput!): Category!
   createProduct(input: CreateProductInput!): Product!
 }
+
+type Subscription {
+  productAdded: Product!
+}

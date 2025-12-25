@@ -5,6 +5,8 @@ import {
   type Product as ProductDb,
 } from '../../../generated/index.js';
 import { CategoryRepository } from '../../category/repositories/CategoryRepository.js';
+import { PubSubChannel } from '../../foundation/redis/models/PubSubChannels.js';
+import { PubSubService } from '../../foundation/redis/services/PubSubService.js';
 import { type Context } from '../../graphql/models/Context.js';
 import type * as graphqlModels from '../../graphql/models/types.js';
 import { ProductRepository } from '../../product/repositories/ProductRepository.js';
@@ -13,15 +15,19 @@ import { ProductRepository } from '../../product/repositories/ProductRepository.
 export class MutationResolvers implements graphqlModels.MutationResolvers<Context> {
   readonly #categoryRepository: CategoryRepository;
   readonly #productRepository: ProductRepository;
+  readonly #pubSubService: PubSubService;
 
   constructor(
     @inject(CategoryRepository)
     categoryRepository: CategoryRepository,
     @inject(ProductRepository)
     productRepository: ProductRepository,
+    @inject(PubSubService)
+    pubSubService: PubSubService,
   ) {
     this.#categoryRepository = categoryRepository;
     this.#productRepository = productRepository;
+    this.#pubSubService = pubSubService;
   }
 
   public async createCategory(
@@ -62,12 +68,19 @@ export class MutationResolvers implements graphqlModels.MutationResolvers<Contex
       args.input.price,
     );
 
-    return {
+    const productPayload: graphqlModels.Product = {
       currency: product.currency,
       description: product.description,
       id: product.id,
       price: product.price,
       title: product.title,
     };
+
+    await this.#pubSubService.publish(
+      PubSubChannel.productAdded,
+      productPayload,
+    );
+
+    return productPayload;
   }
 }
