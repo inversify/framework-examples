@@ -8,7 +8,11 @@
     },
     "@inversifyjs/example-catalog-graphql-api#build": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**/*.{cts,mts,ts}", "!src/graphql/models/types.ts"],
+      "inputs": [
+        "graphql/schemas/*.{graphql}",
+        "src/**/*.{cts,mts,ts}",
+        "!src/graphql/models/types.ts"
+      ],
       "outputs": ["dist/**", "lib/**"]
     },
     "format": {
