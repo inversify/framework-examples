@@ -2,15 +2,18 @@ import type http from 'node:http';
 
 import { type ExpressContextFunctionArgument } from '@as-integrations/express5';
 import {
-  ApolloExpressServerContainerModule,
+  apolloServerServiceIdentifier,
   httpServerServiceIdentifier,
-} from '@inversifyjs/apollo-express';
+} from '@inversifyjs/apollo-core';
+import { ApolloExpressServerContainerModule } from '@inversifyjs/apollo-express';
+import { ApolloSubscriptionServerContainerModule } from '@inversifyjs/apollo-subscription-ws';
 import { readSchemas } from '@inversifyjs/graphql-codegen';
 import { InversifyExpressHttpAdapter } from '@inversifyjs/http-express';
 import { Container } from 'inversify';
 
 import { CategoryContainerModule } from '../../category/modules/CategoryContainerModule.js';
 import { PrismaModule } from '../../foundation/db/modules/PrismaModule.js';
+import { IoredisContainerModule } from '../../foundation/redis/modules/IoredisContainerModule.js';
 import { type Context } from '../../graphql/models/Context.js';
 import { ProductContainerModule } from '../../product/modules/ProductContainerModule.js';
 import { AppContainerModule } from '../modules/AppContainerModule.js';
@@ -42,7 +45,11 @@ await container.load(
       }),
     },
   ),
+  new ApolloSubscriptionServerContainerModule({
+    path: '/subscriptions',
+  }),
   new CategoryContainerModule(),
+  new IoredisContainerModule(),
   new PrismaModule(),
   new ProductContainerModule(),
 );
@@ -53,7 +60,10 @@ const adapter: InversifyExpressHttpAdapter = new InversifyExpressHttpAdapter(
 
 await adapter.build();
 
-const httpServer: http.Server = container.get(httpServerServiceIdentifier);
+const [httpServer]: [http.Server, unknown] = await Promise.all([
+  container.getAsync(httpServerServiceIdentifier),
+  container.getAsync(apolloServerServiceIdentifier),
+]);
 
 await new Promise<void>((resolve: () => void) => {
   httpServer.listen(PORT, () => {
