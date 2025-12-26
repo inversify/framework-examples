@@ -1,9 +1,7 @@
-import type http from 'node:http';
-
 import { type ExpressContextFunctionArgument } from '@as-integrations/express5';
 import {
-  apolloServerServiceIdentifier,
-  httpServerServiceIdentifier,
+  type InversifyApolloProvider,
+  inversifyApolloProviderServiceIdentifier,
 } from '@inversifyjs/apollo-core';
 import { ApolloExpressServerContainerModule } from '@inversifyjs/apollo-express';
 import { ApolloSubscriptionServerContainerModule } from '@inversifyjs/apollo-subscription-ws';
@@ -60,13 +58,11 @@ const adapter: InversifyExpressHttpAdapter = new InversifyExpressHttpAdapter(
 
 await adapter.build();
 
-const [httpServer]: [http.Server, unknown] = await Promise.all([
-  container.getAsync(httpServerServiceIdentifier),
-  container.getAsync(apolloServerServiceIdentifier),
-]);
+const inversifyApolloProvider: InversifyApolloProvider =
+  await container.getAsync(inversifyApolloProviderServiceIdentifier);
 
 await new Promise<void>((resolve: () => void) => {
-  httpServer.listen(PORT, () => {
+  inversifyApolloProvider.httpServer.listen(PORT, () => {
     resolve();
   });
 });
