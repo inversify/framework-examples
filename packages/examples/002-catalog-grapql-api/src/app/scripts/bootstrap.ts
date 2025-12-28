@@ -1,3 +1,5 @@
+import type http from 'node:http';
+
 import { type ExpressContextFunctionArgument } from '@as-integrations/express5';
 import {
   type InversifyApolloProvider,
@@ -23,7 +25,7 @@ const container: Container = new Container();
 
 await container.load(
   new AppContainerModule(),
-  ApolloExpressServerContainerModule.forOptions<Context>(
+  ApolloExpressServerContainerModule.fromOptions<Context>(
     {
       controllerOptions: {
         path: '',
@@ -58,11 +60,12 @@ const adapter: InversifyExpressHttpAdapter = new InversifyExpressHttpAdapter(
 
 await adapter.build();
 
-const inversifyApolloProvider: InversifyApolloProvider =
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const inversifyApolloProvider: InversifyApolloProvider<http.Server> =
   await container.getAsync(inversifyApolloProviderServiceIdentifier);
 
 await new Promise<void>((resolve: () => void) => {
-  inversifyApolloProvider.httpServer.listen(PORT, () => {
+  inversifyApolloProvider.server.listen(PORT, () => {
     resolve();
   });
 });
