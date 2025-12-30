@@ -25,7 +25,7 @@ const container: Container = new Container();
 
 await container.load(
   new AppContainerModule(),
-  ApolloExpressServerContainerModule.fromOptions<Context>(
+  ApolloExpressServerContainerModule.graphServerFromOptions<Context>(
     {
       controllerOptions: {
         path: '',

@@ -28,7 +28,7 @@ export class CategoryResolvers implements graphqlModels.CategoryResolvers<Contex
 
   public async products(
     parent: graphqlModels.Category,
-    args: graphqlModels.CategoryProductsArgs,
+    args: Partial<graphqlModels.CategoryProductsArgs>,
   ): Promise<graphqlModels.ProductConnection> {
     const firstValue: number = Math.max(
       Math.min(args.first ?? MAX_ELEMENTS_PER_PAGE, MAX_ELEMENTS_PER_PAGE),
@@ -66,7 +66,7 @@ export class CategoryResolvers implements graphqlModels.CategoryResolvers<Contex
       pageInfo: {
         endCursor,
         hasNextPage: productsDb.length === firstValue,
-        hasPreviousPage: args.after !== null,
+        hasPreviousPage: args.after != null,
         startCursor,
       },
       totalCount,

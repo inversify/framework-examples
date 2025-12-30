@@ -28,7 +28,7 @@ export class QueryResolvers implements graphqlModels.QueryResolvers<Context> {
 
   public async categories(
     _parent: unknown,
-    args: graphqlModels.QueryCategoriesArgs,
+    args: Partial<graphqlModels.QueryCategoriesArgs>,
   ): Promise<graphqlModels.CategoryConnection> {
     const firstValue: number = Math.max(
       Math.min(args.first ?? MAX_ELEMENTS_PER_PAGE, MAX_ELEMENTS_PER_PAGE),
@@ -64,7 +64,7 @@ export class QueryResolvers implements graphqlModels.QueryResolvers<Context> {
       pageInfo: {
         endCursor,
         hasNextPage: categoriesDb.length === firstValue,
-        hasPreviousPage: args.after !== null,
+        hasPreviousPage: args.after != null,
         startCursor,
       },
       totalCount,
