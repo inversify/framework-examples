@@ -14,13 +14,11 @@
   },
   "devDependencies": {
     "@types/node": "24.10.1",
-    "@vitest/coverage-v8": "4.0.10",
     "eslint": "9.39.1",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
     "tslib": "2.8.1",
-    "typescript": "5.9.3",
-    "vitest": "4.0.10"
+    "typescript": "5.9.3"
   },
   "homepage": "https://inversify.io",
   "keywords": [
@@ -53,12 +51,7 @@
     "build:clean": "rimraf lib",
     "format": "prettier --write ./src",
     "lint": "eslint ./src",
-    "prebuild": "pnpm run build:clean",
-    "test": "vitest run",
-    "test:integration": "pnpm run test --project Integration",
-    "test:coverage": "pnpm run test:unit --coverage",
-    "test:uncommitted": "pnpm run test --changed=HEAD",
-    "test:unit": "pnpm run test --project Unit"
+    "prebuild": "pnpm run build:clean"
   },
   "version": "0.1.0"
 }
