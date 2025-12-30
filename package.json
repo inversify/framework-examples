@@ -13,7 +13,7 @@
     "@inversifyjs/foundation-typescript-config": "~0.1.1",
     "@inversifyjs/foundation-vitest-config": "~0.1.1",
     "husky": "9.1.7",
-    "knip": "5.71.0",
+    "knip": "5.78.0",
     "lint-staged": "16.2.7",
     "turbo": "2.6.3"
   },
@@ -24,7 +24,7 @@
   ],
   "author": "Roberto Pintos López",
   "license": "MIT",
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.26.2",
   "private": true,
   "repository": {
     "type": "git",
