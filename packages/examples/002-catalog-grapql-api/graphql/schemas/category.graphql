@@ -19,5 +19,5 @@ type CategoryEdge {
 type CategoryConnection {
   edges: [CategoryEdge!]!
   pageInfo: PageInfo!
-  totalCount: Int
+  totalCount: Int!
 }

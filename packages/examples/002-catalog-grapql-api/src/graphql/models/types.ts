@@ -46,15 +46,15 @@ export type Category = Node & {
 };
 
 export type CategoryProductsArgs = {
-  after: InputMaybe<Scalars['String']['input']>;
-  first: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CategoryConnection = {
   __typename?: 'CategoryConnection';
   edges: Array<CategoryEdge>;
   pageInfo: PageInfo;
-  totalCount: Maybe<Scalars['Int']['output']>;
+  totalCount: Scalars['Int']['output'];
 };
 
 export type CategoryEdge = {
@@ -103,16 +103,16 @@ export type Node = {
 
 export type PageInfo = {
   __typename?: 'PageInfo';
-  endCursor: Maybe<Scalars['String']['output']>;
+  endCursor?: Maybe<Scalars['String']['output']>;
   hasNextPage: Scalars['Boolean']['output'];
   hasPreviousPage: Scalars['Boolean']['output'];
-  startCursor: Maybe<Scalars['String']['output']>;
+  startCursor?: Maybe<Scalars['String']['output']>;
 };
 
 export type Product = Node & {
   __typename?: 'Product';
   currency: Scalars['String']['output'];
-  description: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   price: Scalars['Float']['output'];
   title: Scalars['String']['output'];
@@ -122,7 +122,7 @@ export type ProductConnection = {
   __typename?: 'ProductConnection';
   edges: Array<ProductEdge>;
   pageInfo: PageInfo;
-  totalCount: Maybe<Scalars['Int']['output']>;
+  totalCount: Scalars['Int']['output'];
 };
 
 export type ProductEdge = {
@@ -134,13 +134,13 @@ export type ProductEdge = {
 export type Query = {
   __typename?: 'Query';
   categories: CategoryConnection;
-  category: Maybe<Category>;
-  product: Maybe<Product>;
+  category?: Maybe<Category>;
+  product?: Maybe<Product>;
 };
 
 export type QueryCategoriesArgs = {
-  after: InputMaybe<Scalars['String']['input']>;
-  first: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type QueryCategoryArgs = {
@@ -155,9 +155,6 @@ export type Subscription = {
   __typename?: 'Subscription';
   productAdded: Product;
 };
-
-export type WithIndex<TObject> = TObject & Record<string, any>;
-export type ResolversObject<TObject> = WithIndex<TObject>;
 
 export type ResolverTypeWrapper<T> = Partial<T> | Promise<Partial<T>>;
 
@@ -278,12 +275,12 @@ export type DirectiveResolverFn<
 
 /** Mapping of interface types */
 export type ResolversInterfaceTypes<_RefType extends Record<string, unknown>> =
-  ResolversObject<{
+  {
     Node: Category | CategoryOverview | Product;
-  }>;
+  };
 
 /** Mapping between all available schema types and the resolvers types */
-export type ResolversTypes = ResolversObject<{
+export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Category: ResolverTypeWrapper<Category>;
   CategoryConnection: ResolverTypeWrapper<CategoryConnection>;
@@ -303,10 +300,10 @@ export type ResolversTypes = ResolversObject<{
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   Subscription: ResolverTypeWrapper<Record<PropertyKey, never>>;
-}>;
+};
 
 /** Mapping between all available schema types and the resolvers parents */
-export type ResolversParentTypes = ResolversObject<{
+export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
   Category: Category;
   CategoryConnection: CategoryConnection;
@@ -326,194 +323,202 @@ export type ResolversParentTypes = ResolversObject<{
   Query: Record<PropertyKey, never>;
   String: Scalars['String']['output'];
   Subscription: Record<PropertyKey, never>;
-}>;
+};
 
 export type CategoryResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Category'] =
     ResolversParentTypes['Category'],
-> = ResolversObject<{
-  id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  name: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  products: Resolver<
+> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  products?: Resolver<
     ResolversTypes['ProductConnection'],
     ParentType,
     ContextType,
-    CategoryProductsArgs
+    Partial<CategoryProductsArgs>
   >;
-  slug: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
 export type CategoryConnectionResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['CategoryConnection'] =
     ResolversParentTypes['CategoryConnection'],
-> = ResolversObject<{
-  edges: Resolver<
+> = {
+  edges?: Resolver<
     Array<ResolversTypes['CategoryEdge']>,
     ParentType,
     ContextType
   >;
-  pageInfo: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-}>;
+  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
+  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+};
 
 export type CategoryEdgeResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['CategoryEdge'] =
     ResolversParentTypes['CategoryEdge'],
-> = ResolversObject<{
-  cursor: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node: Resolver<ResolversTypes['CategoryOverview'], ParentType, ContextType>;
-}>;
+> = {
+  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  node?: Resolver<ResolversTypes['CategoryOverview'], ParentType, ContextType>;
+};
 
 export type CategoryOverviewResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['CategoryOverview'] =
     ResolversParentTypes['CategoryOverview'],
-> = ResolversObject<{
-  id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  name: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  slug: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
 export type MutationResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Mutation'] =
     ResolversParentTypes['Mutation'],
-> = ResolversObject<{
-  createCategory: Resolver<
+> = {
+  createCategory?: Resolver<
     ResolversTypes['Category'],
     ParentType,
     ContextType,
     RequireFields<MutationCreateCategoryArgs, 'input'>
   >;
-  createProduct: Resolver<
+  createProduct?: Resolver<
     ResolversTypes['Product'],
     ParentType,
     ContextType,
     RequireFields<MutationCreateProductArgs, 'input'>
   >;
-}>;
+};
 
 export type NodeResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Node'] =
     ResolversParentTypes['Node'],
-> = ResolversObject<{
+> = {
   __resolveType: TypeResolveFn<
     'Category' | 'CategoryOverview' | 'Product',
     ParentType,
     ContextType
   >;
-}>;
+};
 
 export type PageInfoResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['PageInfo'] =
     ResolversParentTypes['PageInfo'],
-> = ResolversObject<{
-  endCursor: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  hasNextPage: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  hasPreviousPage: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  startCursor: Resolver<
+> = {
+  endCursor?: Resolver<
     Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >;
-}>;
+  hasNextPage?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  hasPreviousPage?: Resolver<
+    ResolversTypes['Boolean'],
+    ParentType,
+    ContextType
+  >;
+  startCursor?: Resolver<
+    Maybe<ResolversTypes['String']>,
+    ParentType,
+    ContextType
+  >;
+};
 
 export type ProductResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Product'] =
     ResolversParentTypes['Product'],
-> = ResolversObject<{
-  currency: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  description: Resolver<
+> = {
+  currency?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<
     Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >;
-  id: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  price: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
-  title: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  price?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
+};
 
 export type ProductConnectionResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['ProductConnection'] =
     ResolversParentTypes['ProductConnection'],
-> = ResolversObject<{
-  edges: Resolver<
+> = {
+  edges?: Resolver<
     Array<ResolversTypes['ProductEdge']>,
     ParentType,
     ContextType
   >;
-  pageInfo: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
-  totalCount: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-}>;
+  pageInfo?: Resolver<ResolversTypes['PageInfo'], ParentType, ContextType>;
+  totalCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+};
 
 export type ProductEdgeResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['ProductEdge'] =
     ResolversParentTypes['ProductEdge'],
-> = ResolversObject<{
-  cursor: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  node: Resolver<ResolversTypes['Product'], ParentType, ContextType>;
-}>;
+> = {
+  cursor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  node?: Resolver<ResolversTypes['Product'], ParentType, ContextType>;
+};
 
 export type QueryResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Query'] =
     ResolversParentTypes['Query'],
-> = ResolversObject<{
-  categories: Resolver<
+> = {
+  categories?: Resolver<
     ResolversTypes['CategoryConnection'],
     ParentType,
     ContextType,
-    QueryCategoriesArgs
+    Partial<QueryCategoriesArgs>
   >;
-  category: Resolver<
+  category?: Resolver<
     Maybe<ResolversTypes['Category']>,
     ParentType,
     ContextType,
     RequireFields<QueryCategoryArgs, 'id'>
   >;
-  product: Resolver<
+  product?: Resolver<
     Maybe<ResolversTypes['Product']>,
     ParentType,
     ContextType,
     RequireFields<QueryProductArgs, 'id'>
   >;
-}>;
+};
 
 export type SubscriptionResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Subscription'] =
     ResolversParentTypes['Subscription'],
-> = ResolversObject<{
-  productAdded: SubscriptionResolver<
+> = {
+  productAdded?: SubscriptionResolver<
     ResolversTypes['Product'],
     'productAdded',
     ParentType,
     ContextType
   >;
-}>;
+};
 
-export type Resolvers<ContextType = any> = ResolversObject<{
-  Category: CategoryResolvers<ContextType>;
-  CategoryConnection: CategoryConnectionResolvers<ContextType>;
-  CategoryEdge: CategoryEdgeResolvers<ContextType>;
-  CategoryOverview: CategoryOverviewResolvers<ContextType>;
-  Mutation: MutationResolvers<ContextType>;
-  Node: NodeResolvers<ContextType>;
-  PageInfo: PageInfoResolvers<ContextType>;
-  Product: ProductResolvers<ContextType>;
-  ProductConnection: ProductConnectionResolvers<ContextType>;
-  ProductEdge: ProductEdgeResolvers<ContextType>;
-  Query: QueryResolvers<ContextType>;
-  Subscription: SubscriptionResolvers<ContextType>;
-}>;
+export type Resolvers<ContextType = any> = {
+  Category?: CategoryResolvers<ContextType>;
+  CategoryConnection?: CategoryConnectionResolvers<ContextType>;
+  CategoryEdge?: CategoryEdgeResolvers<ContextType>;
+  CategoryOverview?: CategoryOverviewResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
+  Node?: NodeResolvers<ContextType>;
+  PageInfo?: PageInfoResolvers<ContextType>;
+  Product?: ProductResolvers<ContextType>;
+  ProductConnection?: ProductConnectionResolvers<ContextType>;
+  ProductEdge?: ProductEdgeResolvers<ContextType>;
+  Query?: QueryResolvers<ContextType>;
+  Subscription?: SubscriptionResolvers<ContextType>;
+};

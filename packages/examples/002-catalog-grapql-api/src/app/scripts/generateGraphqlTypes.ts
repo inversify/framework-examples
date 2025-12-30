@@ -6,6 +6,12 @@ import type prettier from 'prettier';
 
 await generateTsModels({
   destinationPath: './src/graphql/models/types.ts',
+  pluginConfig: {
+    avoidOptionals: false,
+    enumsAsTypes: true,
+    resolverTypeWrapperSignature: 'Partial<T> | Promise<Partial<T>>',
+    useIndexSignature: false,
+  },
   prettierConfig: config as prettier.Options,
   schemas: {
     glob: {

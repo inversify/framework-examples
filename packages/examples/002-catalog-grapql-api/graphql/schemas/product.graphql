@@ -14,5 +14,5 @@ type ProductEdge {
 type ProductConnection {
   edges: [ProductEdge!]!
   pageInfo: PageInfo!
-  totalCount: Int
+  totalCount: Int!
 }

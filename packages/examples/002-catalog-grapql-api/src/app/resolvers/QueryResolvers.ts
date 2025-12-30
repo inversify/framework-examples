@@ -28,7 +28,7 @@ export class QueryResolvers implements graphqlModels.QueryResolvers<Context> {
 
   public async categories(
     _parent: unknown,
-    args: Partial<graphqlModels.QueryCategoriesArgs>,
+    args: graphqlModels.QueryCategoriesArgs,
   ): Promise<graphqlModels.CategoryConnection> {
     const firstValue: number = Math.max(
       Math.min(args.first ?? MAX_ELEMENTS_PER_PAGE, MAX_ELEMENTS_PER_PAGE),
