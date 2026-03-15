@@ -1,7 +1,7 @@
 import { SseStream } from '@inversifyjs/http-sse';
 import { injectable } from 'inversify';
 
-import { ChatMessage } from '../types/ChatMessage.js';
+import { type ChatMessage } from '../types/ChatMessage.js';
 
 @injectable()
 export class ChannelService {

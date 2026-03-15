@@ -1,3 +1,4 @@
+import { type IResolvers } from '@graphql-tools/utils';
 import { inject, injectable } from 'inversify';
 
 import { CategoryResolvers } from '../../category/resolvers/CategoryResolvers.js';
@@ -8,7 +9,11 @@ import { QueryResolvers } from './QueryResolvers.js';
 import { SubscriptionResolvers } from './SubscriptionResolvers.js';
 
 @injectable()
-export class AppResolvers implements Partial<graphqlModels.Resolvers<Context>> {
+export class AppResolvers
+  implements IResolvers, Partial<graphqlModels.Resolvers<Context>>
+{
+  [x: string]: IResolvers[string];
+
   // eslint-disable-next-line @typescript-eslint/naming-convention
   public readonly Category: graphqlModels.CategoryResolvers<Context>;
   // eslint-disable-next-line @typescript-eslint/naming-convention

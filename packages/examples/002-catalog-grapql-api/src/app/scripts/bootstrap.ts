@@ -23,7 +23,7 @@ const PORT: number = 3000;
 
 const container: Container = new Container();
 
-await container.load(
+await container.loadAsync(
   new AppContainerModule(),
   ApolloExpressServerContainerModule.graphServerFromOptions<Context>(
     {

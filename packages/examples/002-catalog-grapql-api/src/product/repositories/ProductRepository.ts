@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 import { v7 } from 'uuid';
 
 import {
-  Prisma,
+  type Prisma,
   PrismaClient,
   type Product,
 } from '../../../generated/index.js';
