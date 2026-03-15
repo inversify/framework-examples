@@ -2,8 +2,8 @@ import { inject, injectable } from 'inversify';
 
 import { PubSubChannel } from '../../foundation/redis/models/PubSubChannels.js';
 import { PubSubService } from '../../foundation/redis/services/PubSubService.js';
-import { Context } from '../../graphql/models/Context.js';
-import * as graphqlModels from '../../graphql/models/types.js';
+import { type Context } from '../../graphql/models/Context.js';
+import type * as graphqlModels from '../../graphql/models/types.js';
 
 @injectable()
 export class SubscriptionResolvers implements graphqlModels.SubscriptionResolvers<Context> {

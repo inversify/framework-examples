@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server';
 import { InversifyHonoHttpAdapter } from '@inversifyjs/http-hono';
-import { Hono } from 'hono';
+import { type Hono } from 'hono';
 import { Container } from 'inversify';
 
 import { ChannelController } from './controllers/ChannelController.js';

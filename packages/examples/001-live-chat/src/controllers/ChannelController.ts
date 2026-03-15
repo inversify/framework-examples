@@ -1,13 +1,13 @@
 import { Body, Controller, Get, Params, Post } from '@inversifyjs/http-core';
 import {
   SsePublisher,
-  SsePublisherOptions,
-  SseStream,
+  type SsePublisherOptions,
+  type SseStream,
 } from '@inversifyjs/http-sse';
 import { inject } from 'inversify';
 
 import { ChannelService } from '../services/ChannelService.js';
-import { ChatMessage } from '../types/ChatMessage.js';
+import { type ChatMessage } from '../types/ChatMessage.js';
 
 @Controller('/channels')
 export class ChannelController {

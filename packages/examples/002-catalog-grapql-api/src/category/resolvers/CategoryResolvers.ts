@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify';
 
 import { type Product as ProductDb } from '../../../generated/index.js';
-import { Context } from '../../graphql/models/Context.js';
+import { type Context } from '../../graphql/models/Context.js';
 import type * as graphqlModels from '../../graphql/models/types.js';
 import { ProductRepository } from '../../product/repositories/ProductRepository.js';
 
