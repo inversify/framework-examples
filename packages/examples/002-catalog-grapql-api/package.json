@@ -11,7 +11,7 @@
     "@inversifyjs/apollo-subscription-ws": "0.3.0",
     "@inversifyjs/graphql-codegen": "0.4.0",
     "@inversifyjs/http-core": "^5.0.1",
-    "@inversifyjs/http-express": "^4.10.2",
+    "@inversifyjs/http-express": "^5.0.1",
     "@prisma/adapter-pg": "^7.5.0",
     "@prisma/client": "^7.5.0",
     "@prisma/client-runtime-utils": "^7.5.0",
