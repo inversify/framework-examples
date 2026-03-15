@@ -7,7 +7,7 @@
   "dependencies": {
     "@hono/node-server": "^1.19.11",
     "@inversifyjs/http-core": "^5.0.1",
-    "@inversifyjs/http-hono": "^4.10.2",
+    "@inversifyjs/http-hono": "^5.0.1",
     "@inversifyjs/http-sse": "^2.0.1",
     "hono": "^4.12.8",
     "inversify": "^8.1.0"
