@@ -18,7 +18,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "inversify": "^8.1.0",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@as-integrations/express5": "1.1.2",
