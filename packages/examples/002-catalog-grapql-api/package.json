@@ -5,7 +5,7 @@
   },
   "description": "InversifyJs Catalog GraphQL API Example",
   "dependencies": {
-    "@apollo/server": "5.5.0",
+    "@apollo/server": "5.5.1",
     "@inversifyjs/apollo-core": "0.7.1",
     "@inversifyjs/apollo-express": "0.8.1",
     "@inversifyjs/apollo-subscription-ws": "0.3.1",
