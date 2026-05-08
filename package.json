@@ -5,9 +5,9 @@
   },
   "description": "InversifyJS framework examples root package",
   "devDependencies": {
-    "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
-    "@commitlint/prompt-cli": "20.5.3",
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
+    "@commitlint/prompt-cli": "21.0.0",
     "@eslint/js": "10.0.1",
     "@inversifyjs/eslint-plugin-require-extensions": "~0.2.0",
     "@inversifyjs/foundation-eslint-config": "~0.2.0",
