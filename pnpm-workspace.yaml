@@ -1,9 +1,12 @@
+allowBuilds:
+  '@apollo/protobufjs': true
+  '@prisma/engines': true
+  '@swc/core': true
+  esbuild: true
+  prisma: true
+
+enablePrePostScripts: true
+strictPeerDependencies: false
+
 packages:
   - packages/examples/*
-
-onlyBuiltDependencies:
-  - '@apollo/protobufjs'
-  - '@prisma/engines'
-  - '@swc/core'
-  - esbuild
-  - prisma
