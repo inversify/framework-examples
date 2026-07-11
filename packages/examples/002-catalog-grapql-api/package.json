@@ -17,14 +17,14 @@
     "@prisma/client-runtime-utils": "^7.8.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "inversify": "^8.1.1",
+    "inversify": "^8.1.2",
     "uuid": "^14.0.1"
   },
   "devDependencies": {
     "@as-integrations/express5": "1.1.2",
     "@graphql-tools/utils": "11.2.0",
     "@types/express": "5.0.6",
-    "@types/node": "24.13.2",
+    "@types/node": "24.13.3",
     "@vitest/coverage-v8": "4.1.10",
     "eslint": "10.6.0",
     "graphql": "17.0.2",
