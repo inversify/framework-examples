@@ -10,7 +10,7 @@
     "@inversifyjs/http-hono": "^5.4.5",
     "@inversifyjs/http-sse": "^2.0.11",
     "hono": "^4.12.31",
-    "inversify": "^8.2.1"
+    "inversify": "^8.2.2"
   },
   "devDependencies": {
     "@types/node": "24.13.3",
