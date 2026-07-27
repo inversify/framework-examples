@@ -13,10 +13,10 @@
     "@inversifyjs/foundation-eslint-config": "~0.3.0",
     "@inversifyjs/foundation-prettier-config": "~0.1.1",
     "@inversifyjs/foundation-typescript-config": "~0.2.0",
-    "@inversifyjs/foundation-vitest-config": "~0.2.0",
+    "@inversifyjs/foundation-vitest-config": "~0.2.1",
     "husky": "9.1.7",
     "knip": "6.29.0",
-    "lint-staged": "17.1.1",
+    "lint-staged": "17.2.0",
     "turbo": "2.10.6"
   },
   "keywords": [
@@ -26,7 +26,7 @@
   ],
   "author": "Roberto Pintos López",
   "license": "MIT",
-  "packageManager": "pnpm@11.16.0",
+  "packageManager": "pnpm@11.17.0",
   "private": true,
   "repository": {
     "type": "git",
