@@ -28,7 +28,7 @@
     "@vitest/coverage-v8": "4.1.10",
     "eslint": "10.8.0",
     "graphql": "17.0.2",
-    "ioredis": "5.11.1",
+    "ioredis": "6.0.0",
     "prettier": "3.9.6",
     "prisma": "7.9.0",
     "rimraf": "6.1.3",
