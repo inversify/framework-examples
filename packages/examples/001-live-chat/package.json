@@ -5,11 +5,11 @@
   },
   "description": "InversifyJs live chat code example",
   "dependencies": {
-    "@hono/node-server": "^2.0.12",
+    "@hono/node-server": "^2.1.0",
     "@inversifyjs/http-core": "^5.4.7",
     "@inversifyjs/http-hono": "^5.4.7",
     "@inversifyjs/http-sse": "^2.0.13",
-    "hono": "^4.12.33",
+    "hono": "^4.13.0",
     "inversify": "^8.2.3"
   },
   "devDependencies": {
