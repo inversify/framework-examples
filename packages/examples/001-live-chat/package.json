@@ -9,7 +9,7 @@
     "@inversifyjs/http-core": "^5.5.1",
     "@inversifyjs/http-hono": "^5.5.1",
     "@inversifyjs/http-sse": "^2.0.16",
-    "hono": "^4.13.2",
+    "hono": "^4.13.3",
     "inversify": "^8.2.3"
   },
   "devDependencies": {
