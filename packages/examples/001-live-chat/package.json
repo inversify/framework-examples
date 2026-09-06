@@ -6,9 +6,9 @@
   "description": "InversifyJs live chat code example",
   "dependencies": {
     "@hono/node-server": "^2.1.1",
-    "@inversifyjs/http-core": "^5.5.2",
-    "@inversifyjs/http-hono": "^5.5.2",
-    "@inversifyjs/http-sse": "^2.0.17",
+    "@inversifyjs/http-core": "^5.5.3",
+    "@inversifyjs/http-hono": "^5.5.3",
+    "@inversifyjs/http-sse": "^2.0.18",
     "hono": "^4.13.5",
     "inversify": "^8.2.3"
   },
