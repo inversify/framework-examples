@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": false,
   "constraints": {
-    "pnpm": "12.8.2"
+    "pnpm": "12.9.0"
   },
   "dockerfile": {
     "fileMatch": [
