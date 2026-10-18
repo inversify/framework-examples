@@ -26,7 +26,7 @@
   ],
   "author": "Roberto Pintos López",
   "license": "MIT",
-  "packageManager": "pnpm@12.13.0",
+  "packageManager": "pnpm@12.14.0",
   "private": true,
   "repository": {
     "type": "git",
