@@ -5,7 +5,7 @@
   },
   "description": "InversifyJs Catalog GraphQL API Example",
   "dependencies": {
-    "@apollo/server": "5.5.1",
+    "@apollo/server": "5.5.2",
     "@inversifyjs/apollo-core": "0.7.2",
     "@inversifyjs/apollo-express": "0.8.2",
     "@inversifyjs/apollo-subscription-ws": "0.3.2",
@@ -29,7 +29,7 @@
     "eslint": "10.14.0",
     "graphql": "17.1.0",
     "ioredis": "6.0.0",
-    "prettier": "3.10.0",
+    "prettier": "3.10.1",
     "prisma": "7.10.1",
     "rimraf": "6.1.4",
     "tslib": "2.9.1",
