@@ -5,7 +5,7 @@
   },
   "description": "InversifyJs live chat code example",
   "dependencies": {
-    "@hono/node-server": "^2.1.7",
+    "@hono/node-server": "^2.1.8",
     "@inversifyjs/http-core": "^5.10.0",
     "@inversifyjs/http-hono": "^5.10.0",
     "@inversifyjs/http-sse": "^2.0.29",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/node": "26.6.6",
-    "eslint": "10.14.0",
+    "eslint": "10.15.0",
     "prettier": "3.10.1",
     "rimraf": "6.1.4",
     "tslib": "2.9.1",
