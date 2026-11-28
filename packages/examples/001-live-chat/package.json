@@ -9,11 +9,11 @@
     "@inversifyjs/http-core": "^5.10.1",
     "@inversifyjs/http-hono": "^5.10.1",
     "@inversifyjs/http-sse": "^2.0.30",
-    "hono": "^4.13.21",
+    "hono": "^4.13.22",
     "inversify": "^8.3.0"
   },
   "devDependencies": {
-    "@types/node": "26.6.6",
+    "@types/node": "26.6.10",
     "eslint": "10.15.0",
     "prettier": "3.10.1",
     "rimraf": "6.1.4",
